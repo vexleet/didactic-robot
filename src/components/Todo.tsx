@@ -22,7 +22,7 @@ const Todo: FC<PropsTodo> = ({todo, index, removeTodo, changeStatus}) => {
                 display: "flex",
             }}
         >
-            <span style={{ flex: 1 }}>{todo.name}</span>
+            <span style={{ flex: 1 }}>{todo.name} - {todo.deadline || 'No deadline'}</span>
 
             <select value={todo.status} onChange={changeTodoStatus}>
                 <option value={TodoStatus.Todo}>Todo</option>

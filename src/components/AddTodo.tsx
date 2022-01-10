@@ -7,13 +7,15 @@ type AddTodoProps = {
 
 const AddTodo: FC<AddTodoProps> = ({onSubmit}) => {
     const [newTodo, setNewTodo] = useState('')
+    const [deadline, setDeadline] = useState('')
 
     const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!newTodo) return;
 
-        onSubmit({name: newTodo, status: TodoStatus.Todo})
+        onSubmit({name: newTodo, status: TodoStatus.Todo, deadline: deadline})
         setNewTodo('')
+        setDeadline('')
     }
 
     return (
@@ -28,6 +30,22 @@ const AddTodo: FC<AddTodoProps> = ({onSubmit}) => {
                 value={newTodo}
                 onChange={(e) => setNewTodo(e.target.value)}
                 placeholder="Fix the thing.."
+                style={{
+                    display: "inline-flex",
+                    flex: 1,
+                    padding: 4,
+                    border: "1px solid #eaeaea",
+                    marginRight: 4,
+                }}
+            />
+
+            <input
+                type="date"
+                name="deadline"
+                id="deadline"
+                value={deadline}
+                onChange={(e) => setDeadline(e.target.value)}
+                placeholder="Deadline"
                 style={{
                     display: "inline-flex",
                     flex: 1,
