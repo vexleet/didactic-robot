@@ -16,9 +16,7 @@ const Todos: FC = () => {
     }
 
     const removeTodo = (removeIndex: number) => {
-        console.log(removeIndex)
         const newTodos = todos.filter((_, index) => index !== removeIndex);
-        console.log(newTodos)
         setTodos(newTodos);
     }
 
